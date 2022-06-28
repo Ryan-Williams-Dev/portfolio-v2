@@ -2,17 +2,17 @@ import {
   ChakraProvider,
   Box,
   theme,
-  Heading,
 } from "@chakra-ui/react"
-import IntroCard from "./components/introCard/IntroCard"
 import Navbar from "./components/nav/Navbar"
+import About from "./pages/About"
+import Index from "./pages/Index"
 
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Box textAlign="center" fontSize="xl">
+      <Index />
       <Navbar />
-      <Heading>Ryan</Heading>
-      <IntroCard/>
+      <About />
     </Box>
   </ChakraProvider>
 )

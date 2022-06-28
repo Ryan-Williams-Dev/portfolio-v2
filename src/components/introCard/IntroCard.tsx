@@ -1,13 +1,20 @@
 import { 
   Image,
-  Box
+  Box,
+  Heading,
 } from "@chakra-ui/react";
 
 export default function IntroCard() {
 
   return(
-    <Box height={'200vh'}>
-
+    <Box maxWidth='50vw' >
+      <Image src="images/me-main.jpg" boxSize='auto' fit='contain' borderRadius='lg' boxShadow='2xl' />
+      <Heading>
+        Ryan Williams
+      </Heading>
+      <Heading>
+        Software Developer
+      </Heading>
     </Box>
   )
 }
