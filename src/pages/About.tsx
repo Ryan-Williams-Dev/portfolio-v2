@@ -3,8 +3,16 @@ import IntroCard from "../components/introCard/IntroCard"
 
 export default function About() {
   return (
-    <Flex display='flex' direction='column' justifyContent='space-evenly' alignItems='center' height='100vh'>
-      <Heading pt={16}>Ryan Williams - Software Developer</Heading>
+    <Flex 
+      display='flex' 
+      direction='column' 
+      justifyContent='space-evenly' 
+      alignItems='center' 
+      width='90vw' 
+      height='100vh'
+      pt={16}
+    >
+      <Heading pt={16}>About Me</Heading>
       <IntroCard/>
     </Flex>
   )

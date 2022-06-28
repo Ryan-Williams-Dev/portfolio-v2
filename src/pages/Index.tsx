@@ -9,7 +9,7 @@ export default function Index() {
       direction='column' 
       justifyContent='center' 
       alignItems='center' 
-      height='100vh'
+      height='100vh' 
     >
       <Heading fontSize='5xl'>
         Hello, I am <Heading fontSize='5xl' as='span' color='teal.200' >Ryan Williams</Heading>.
