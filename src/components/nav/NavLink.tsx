@@ -1,16 +1,21 @@
-import { Link } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
-type NavbarLink = {
-  label: string,
-  route: string
-}
-
-export default function NavLink({ label, route }: NavbarLink) {
-
-  return(
-    <Link
-      href={route}
-      fontSize='md'
-    >{label}</Link>
-  )
-}
+export default function NavLink({ navLinkId, scrollToId, activeNavLinkId, setActiveNavLinkId }: any) {
+	const handleClick = () => {
+		setActiveNavLinkId(navLinkId);
+		document.getElementById(scrollToId)?.scrollIntoView({
+			behavior: 'smooth',
+		});
+	};
+	
+	return (
+		<Button
+      variant='link'
+		 	id={navLinkId} 
+			className={activeNavLinkId === navLinkId ? 'activeClass' : ''} 
+		 	onClick={handleClick}
+		>
+			{navLinkId}
+		</Button>
+	);
+};

@@ -4,8 +4,10 @@ import {
   Stack,
   } from "@chakra-ui/react"
 import NavLink from "./NavLink"
+import { useEffect, useState } from "react";
 
-export default function Navbar() {
+export default function Navbar({ activeNavLinkId, setActiveNavLinkId, navLinks }: any) {
+
 
   return(
     <Box 
@@ -24,10 +26,15 @@ export default function Navbar() {
           color='teal.200'
           size='md'
         >Ryan Williams</Heading>
-        <NavLink route="/" label="About Me" ></NavLink>
-        <NavLink route="/" label="Work" ></NavLink>
-        <NavLink route="/" label="Contact Me" ></NavLink>
-        <NavLink route="/" label="Misc" ></NavLink>
+        {navLinks?.map(
+          ({navLinkId, scrollToId}: any) =>
+            <NavLink 
+            navLinkId={navLinkId} 
+            scrollToId={scrollToId} 
+            activeNavLinkId={activeNavLinkId}
+            setActiveNavLinkId={setActiveNavLinkId} 
+            />
+        )}
       </Stack>
     </Box>
   )  

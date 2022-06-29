@@ -2,10 +2,18 @@ import { ArrowForwardIcon } from "@chakra-ui/icons"
 import { Button, Flex, Heading, Text } from "@chakra-ui/react"
 
 
-export default function Index() {
+export default function Index({ setActiveNavLinkId, projectLink }: any) {
+
+  const handleClick = () => {
+		setActiveNavLinkId(projectLink.navLinkId);
+		document.getElementById(projectLink.scrollToId)?.scrollIntoView({
+			behavior: 'smooth',
+		});
+	};
+
   return (
     <Flex 
-      display='flex' 
+      id='homeContainer'
       direction='column' 
       justifyContent='center' 
       alignItems='center' 
@@ -25,6 +33,7 @@ export default function Index() {
         fontSize='2xl' 
         rightIcon={<ArrowForwardIcon ml={5} />}
         p={8}
+        onClick={handleClick}
       >
         <Text pb={1.5}>
           Take a look at my projects

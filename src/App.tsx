@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import {
   ChakraProvider,
   Box,
   theme,
-  calc,
 } from "@chakra-ui/react"
 import Navbar from "./components/nav/Navbar"
 import About from "./pages/About"
@@ -11,14 +11,22 @@ import Projects from "./pages/Projects"
 
 export const App = () => {
 
-  
+  const [activeNavLinkId, setActiveNavLinkId] = useState('');
+  const navLinks = [
+    {navLinkId: 'About', scrollToId: 'aboutContainer'},
+    {navLinkId: 'Projects', scrollToId: 'projectsContainer'},
+    {navLinkId: 'Contact', scrollToId: 'contactContainer'},
+    {navLinkId: 'Home', scrollToId: 'homeContainer'},
+  ]
+
+
   return(
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl" display='flex' flexDirection='column' alignItems='center'>
-        <Index />
-        <Navbar />
-        <About />
-        <Projects />
+        <Index  projectLink={navLinks[1]} activeNavLinkId={activeNavLinkId} setActiveNavLinkId={setActiveNavLinkId}/>
+        <Navbar activeNavLinkId={activeNavLinkId} setActiveNavLinkId={setActiveNavLinkId} navLinks={navLinks} />
+        <About  />
+        <Projects  />
       </Box>
     </ChakraProvider>
 )
