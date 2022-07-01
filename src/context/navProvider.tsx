@@ -1,13 +1,12 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, ReactNode } from 'react';
 
-interface navContextinterface {
-	setActiveNavLinkId: () => void,
-
+type NavContextProps = {
+	children: ReactNode
 }
 
-export const NavContext = createContext<navContextinterface | null>(null);
+export const NavContext = createContext({});
 
-const NavProvider = ({ children }: any) => {
+const NavProvider = ({ children }: NavContextProps) => {
 	const [activeNavLinkId, setActiveNavLinkId] = useState('');
 
 	const providerValue = {
