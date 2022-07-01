@@ -8,6 +8,7 @@ import Navbar from "./components/nav/Navbar"
 import About from "./pages/About"
 import Index from "./pages/Index"
 import Projects from "./pages/Projects"
+import { NavContext, NavProvider } from './context/navProvider';
 
 export const App = () => {
 
@@ -22,12 +23,14 @@ export const App = () => {
 
   return(
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl" display='flex' flexDirection='column' alignItems='center'>
-        <Index  projectLink={navLinks[1]} activeNavLinkId={activeNavLinkId} setActiveNavLinkId={setActiveNavLinkId}/>
-        <Navbar activeNavLinkId={activeNavLinkId} setActiveNavLinkId={setActiveNavLinkId} navLinks={navLinks} />
-        <About  />
-        <Projects  />
-      </Box>
+      <NavProvider>
+        <Box textAlign="center" fontSize="xl" display='flex' flexDirection='column' alignItems='center'>
+          <Index  projectLink={navLinks[1]} activeNavLinkId={activeNavLinkId} setActiveNavLinkId={setActiveNavLinkId}/>
+          <Navbar activeNavLinkId={activeNavLinkId} setActiveNavLinkId={setActiveNavLinkId} navLinks={navLinks} />
+          <About  />
+          <Projects  />
+        </Box>
+      </NavProvider>
     </ChakraProvider>
 )
 }

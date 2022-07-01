@@ -4,9 +4,17 @@ type NavContextProps = {
 	children: ReactNode
 }
 
-export const NavContext = createContext({});
+interface NavGetterAndSetter {
+	activeNavLinkId: string | undefined
+	setActiveNavLinkId: React.Dispatch<React.SetStateAction<string>>
+}
 
-const NavProvider = ({ children }: NavContextProps) => {
+export const NavContext = createContext<NavGetterAndSetter>({
+	activeNavLinkId: 'homeContainer',
+	setActiveNavLinkId: () => {}
+});
+
+export const NavProvider = ({ children }: NavContextProps) => {
 	const [activeNavLinkId, setActiveNavLinkId] = useState('');
 
 	const providerValue = {
