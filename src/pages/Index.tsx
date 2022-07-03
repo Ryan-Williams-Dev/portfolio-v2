@@ -10,7 +10,7 @@ export default function Index() {
 
   const homeRef = useNav('Home')
   const { setActiveNavLinkId } = useContext(NavContext)
-  const { navLinkId, scrollToId } = navLinks[1]
+  const { navLinkId, scrollToId } = navLinks[2]
 
   return (
     <Flex 

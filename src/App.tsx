@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   ChakraProvider,
   Box,
@@ -9,6 +8,7 @@ import About from "./pages/About"
 import Index from "./pages/Index"
 import Projects from "./pages/Projects"
 import { NavProvider } from './context/navProvider';
+import Contact from "./pages/Contact"
 
 export const App = () => {
 
@@ -20,6 +20,7 @@ export const App = () => {
           <Navbar />
           <About  />
           <Projects  />
+          <Contact />
         </Box>
       </NavProvider>
     </ChakraProvider>
