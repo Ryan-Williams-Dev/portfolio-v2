@@ -1,18 +1,20 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 import { Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { useContext } from "react";
+import { NavContext } from "../context/navProvider";
+import { useNav } from "../hooks/useNav";
+import navLinks from "../components/nav/NavLinks";
+import navClickHandler from "../helpers/navClickHandler";
 
+export default function Index() {
 
-export default function Index({ setActiveNavLinkId, projectLink }: any) {
-
-  const handleClick = () => {
-		setActiveNavLinkId(projectLink.navLinkId);
-		document.getElementById(projectLink.scrollToId)?.scrollIntoView({
-			behavior: 'smooth',
-		});
-	};
+  const homeRef = useNav('Home')
+  const { setActiveNavLinkId } = useContext(NavContext)
+  const { navLinkId, scrollToId } = navLinks[1]
 
   return (
     <Flex 
+      ref={homeRef}
       id='homeContainer'
       direction='column' 
       justifyContent='center' 
@@ -33,7 +35,7 @@ export default function Index({ setActiveNavLinkId, projectLink }: any) {
         fontSize='2xl' 
         rightIcon={<ArrowForwardIcon ml={5} />}
         p={8}
-        onClick={handleClick}
+        onClick={() => navClickHandler(navLinkId, scrollToId, setActiveNavLinkId)}
       >
         <Text pb={1.5}>
           Take a look at my projects

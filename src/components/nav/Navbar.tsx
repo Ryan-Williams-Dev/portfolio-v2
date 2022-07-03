@@ -4,10 +4,9 @@ import {
   Stack,
   } from "@chakra-ui/react"
 import NavLink from "./NavLink"
-import { useEffect, useState } from "react";
+import navLinks from "./NavLinks";
 
-export default function Navbar({ activeNavLinkId, setActiveNavLinkId, navLinks }: any) {
-
+export default function Navbar() {
 
   return(
     <Box 
@@ -31,8 +30,6 @@ export default function Navbar({ activeNavLinkId, setActiveNavLinkId, navLinks }
             <NavLink 
             navLinkId={navLinkId} 
             scrollToId={scrollToId} 
-            activeNavLinkId={activeNavLinkId}
-            setActiveNavLinkId={setActiveNavLinkId} 
             />
         )}
       </Stack>

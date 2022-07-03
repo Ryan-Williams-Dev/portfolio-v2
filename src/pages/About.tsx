@@ -1,10 +1,14 @@
 import { Flex, Heading } from "@chakra-ui/react"
 import IntroCard from "../components/introCard/IntroCard"
+import { useNav } from "../hooks/useNav"
 
 export default function About() {
 
+  const aboutRef = useNav('About')
+
   return (
     <Flex
+      ref={aboutRef}
       id="aboutContainer"
       direction='column' 
       justifyContent='space-evenly' 

@@ -1,8 +1,13 @@
 import { Flex, Heading } from "@chakra-ui/react";
+import { useNav } from "../hooks/useNav";
 
 export default function Projects() {
+
+  const projectsRef = useNav('Projects')
+
   return (
     <Flex
+      ref={projectsRef}
       id='projectsContainer'
       direction='column' 
       justifyContent='space-evenly' 
