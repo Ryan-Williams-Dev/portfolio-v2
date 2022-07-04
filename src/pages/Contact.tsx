@@ -1,4 +1,4 @@
-import { Flex, Heading } from "@chakra-ui/react"
+import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react"
 import { useNav } from "../hooks/useNav"
 
 export default function Contact() {
@@ -16,7 +16,11 @@ export default function Contact() {
       height='100vh'
       pt={16}
     >
-      <Heading>Contact Me</Heading>
+      <Flex direction='column' gap='2' >
+        <Heading>Contact Me</Heading>
+        <Text>Don't hesitate to reach out to me and find out what we can build together</Text>
+      </Flex>
+      
     </Flex>
   )
 }

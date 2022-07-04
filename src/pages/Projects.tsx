@@ -1,4 +1,5 @@
 import { Flex, Heading } from "@chakra-ui/react";
+import ProjectList from "../components/projects/ProjectList";
 import { useNav } from "../hooks/useNav";
 
 export default function Projects() {
@@ -12,24 +13,14 @@ export default function Projects() {
       direction='column' 
       justifyContent='space-evenly' 
       alignItems='center' 
-      height='100vh'
+      minHeight='100vh'
       pt={16}
     >
       <Heading>Projects</Heading>
-      <Flex 
-        justifyContent='space-between'
-        width='80vw'
-      >
-        <Heading>Seek</Heading>
-        <Heading>Scheduler</Heading>
-      </Flex>
-      <Flex 
-        justifyContent='space-between'
-        width='80vw'
-      >
-        <Heading>Decision Maker</Heading>
-        <Heading>Jungle</Heading>
-      </Flex>
+
+      <ProjectList />
+
+      
     </Flex>
   )
 }
