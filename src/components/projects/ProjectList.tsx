@@ -1,9 +1,23 @@
+import { useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import { useScroll } from "react-use-gesture";
 import { useSpring } from "react-spring";
 import { projects } from "./ProjectListInfoAndType"
 
 export default function ProjectList() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const handleScroll = ((event: any, container: any) => {
+    event.preventDefault()
+    container.scrollLeft += event.deltaY;
+  })
+
+  useEffect(() => {
+    const element = containerRef.current
+    element?.addEventListener('wheel', (event) => {
+      handleScroll(event, element)
+    })
+  }, [])
 
   const [style, set] = useSpring(() => ({
     transform: "perspective(500px) rotateY(0deg)"
@@ -27,11 +41,13 @@ export default function ProjectList() {
 
   return (
     <div
+    ref={containerRef}
     style={{
       display: 'flex',
       overflowX: 'scroll',
       maxWidth: '100vw',
-      padding: '50px',
+      paddingTop: '50px',
+      paddingBottom: '50px',
       paddingLeft: '10vw',
       justifyContent: 'flex-start'
     }}
