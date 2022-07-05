@@ -26,8 +26,9 @@ export default function Navbar() {
           size='md'
         >Ryan Williams</Heading>
         {navLinks?.map(
-          ({navLinkId, scrollToId}: any) =>
+          ({navLinkId, scrollToId}: any, index) =>
             <NavLink 
+            key={index}
             navLinkId={navLinkId} 
             scrollToId={scrollToId} 
             />

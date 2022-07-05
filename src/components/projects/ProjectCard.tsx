@@ -1,30 +1,26 @@
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
-import { Project } from "./ProjectList";
+import { Heading, Image, Text } from "@chakra-ui/react";
+import { Project } from "./ProjectListInfoAndType";
 import { useSpring, animated } from "react-spring";
-import { styled } from "@chakra-ui/react";
 
-export default function ProjectCard({title, imageLocation, description}: Project) {
+export default function ProjectCard(props: any) {
 
-  const style = useSpring({
-    from: {
-      transform: "rotateY(0deg)"
-    },
-    transform: "rotateY(25deg)"
-  });
+  const { imageLocation, title, description }: Project = props
+  const { style } = props;
 
   return (
     <animated.div
     style={{...style,
-      backgroundColor: '#2D3748',
+      backgroundColor: 'transparent',
       flexShrink: '0',
-      maxWidth: '100%',
+      height: '100%',
+      width: '80vw',
       borderRadius: '10px',
-      marginLeft: '10px',
+      marginRight: '10vw',
     }}
     >
-      <Image src={imageLocation} />
-      <Heading>{title}</Heading>
-      <Text>{description}</Text>
+        <Image fit='fill' src={imageLocation} />
+        <Heading>{title}</Heading>
+        <Text>{description}</Text>
     </animated.div>
   )
 }
