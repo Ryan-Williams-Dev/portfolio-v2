@@ -3,7 +3,7 @@ import { useOnScreen } from './useOnScreen';
 import { NavContext } from '../context/navProvider' ;
 
 export const useNav = (navLinkId: string) => {
-	const ref = useRef() as React.MutableRefObject<HTMLImageElement>;;
+	const ref = useRef() as React.MutableRefObject<HTMLImageElement>;
 
 	const { setActiveNavLinkId } = useContext(NavContext);
 

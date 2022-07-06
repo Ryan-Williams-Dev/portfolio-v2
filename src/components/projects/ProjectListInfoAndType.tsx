@@ -16,12 +16,12 @@ export const projects: ProjectList = [
     imageLocation: '/images/projects/scheduler/1.JPG',
     description: "A single page app build with React. Users can book, edit, and cancel appointments. Putting in their name and selecting an interviewer from the days available interviewers."  
   },
-  { title: 'Scheduler',
+  { title: 'Decision Maker',
     imageLocation: '/images/projects/scheduler/1.JPG',
-    description: "A single page app build with React. Users can book, edit, and cancel appointments. Putting in their name and selecting an interviewer from the days available interviewers."  
+    description: "Deccccc"  
   },
-  { title: 'Scheduler',
+  { title: 'Tweeter',
     imageLocation: '/images/projects/scheduler/1.JPG',
-    description: "A single page app build with React. Users can book, edit, and cancel appointments. Putting in their name and selecting an interviewer from the days available interviewers."  
+    description: "Twit twoo"  
   }
 ]
