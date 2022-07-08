@@ -1,31 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import { projects } from "./ProjectListInfoAndType"
+import useProjectScrollHandler from '../../hooks/useProjectScrollHandler'
 
 import useSideScrollAnimattion from "../../hooks/useSideScrollAnimattion";
 
 export default function ProjectList() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { bind, style } = useSideScrollAnimattion()
-  const [currentProject, setCurrentProject] = useState(0)
-
-  const listRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  const handleScroll = ((event: WheelEvent, container: any) => {
-    event.preventDefault()
-
-    if (event.deltaY > 0 && currentProject < 3) {
-      document.getElementById(`project${currentProject + 1}`)?.scrollIntoView({behavior: "smooth", block: "nearest", inline: "center"})
-      setCurrentProject(currentProject + 1)
-      console.log('curr proj ', currentProject)
-    }
-    if (event.deltaY < 0 && currentProject > 0) {
-      document.getElementById(`project${currentProject - 1}`)?.scrollIntoView({behavior: "smooth", block: "nearest", inline: "center"})
-      setCurrentProject(currentProject - 1)
-      console.log('curr proj ', currentProject)
-    }
-    
-  })
+  const { currentProject, handleScroll } = useProjectScrollHandler()
 
   const handleScrollRef = useRef(handleScroll)
   useEffect(()=>{
@@ -39,7 +22,6 @@ export default function ProjectList() {
 
     return () =>  element?.removeEventListener('wheel', funct)
   }, [currentProject])
-
 
   return (
     <div
@@ -59,8 +41,7 @@ export default function ProjectList() {
     >
       {projects.map((project, index) => {
         return(
-        <ProjectCard 
-        ref={(ref: HTMLDivElement) => listRefs.current[index] = ref} 
+        <ProjectCard
         key={index}
         id={`project${index}`}
         {...project}

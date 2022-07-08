@@ -5,11 +5,10 @@ import { animated } from "react-spring";
 export default function ProjectCard(props: any) {
 
   const { imageLocation, title, description }: Project = props
-  const { style, ref, id } = props;
+  const { style, id } = props;
 
   return (
     <animated.div
-    ref={ref}
     id={id}
     style={{...style,
       backgroundColor: 'transparent',
