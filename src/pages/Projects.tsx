@@ -15,6 +15,7 @@ export default function Projects() {
       alignItems='center' 
       minHeight='100vh'
       pt={16}
+      bgColor='gray.900'
     >
       <Heading>Projects</Heading>
 

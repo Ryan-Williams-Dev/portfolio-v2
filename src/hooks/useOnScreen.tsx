@@ -15,7 +15,7 @@ export const useOnScreen = (ref: { current: Element; }) => {
 		return () => {
 			observer.disconnect();
 		};
-	});
+	}, []); // delete empty array if encountering nav problems
   
 	return isOnScreen;
 };

@@ -18,6 +18,7 @@ export default function Navbar() {
       justifyContent='space-between'
       alignItems='center'
       backgroundColor='gray.700'
+      zIndex={2}
     >
 
       <Stack direction='row' spacing={4} alignItems='center' ml='8'>
