@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useOnScreen = (ref: { current: Element; }) => {
+export const useOnScreen = (element: Element) => {
 	const [isOnScreen, setOnScreen] = useState(false);
 
 	const observer = new IntersectionObserver(
@@ -11,11 +11,11 @@ export const useOnScreen = (ref: { current: Element; }) => {
 	);
 
 	useEffect(() => {
-		observer.observe(ref.current);
+		observer.observe(element);
 		return () => {
 			observer.disconnect();
 		};
-	}, []); // delete empty array if encountering nav problems
+	}, []);
   
 	return isOnScreen;
 };

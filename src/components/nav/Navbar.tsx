@@ -18,6 +18,7 @@ export default function Navbar() {
       justifyContent='space-between'
       alignItems='center'
       backgroundColor='gray.700'
+      zIndex={2}
     >
 
       <Stack direction='row' spacing={4} alignItems='center' ml='8'>
@@ -26,8 +27,9 @@ export default function Navbar() {
           size='md'
         >Ryan Williams</Heading>
         {navLinks?.map(
-          ({navLinkId, scrollToId}: any) =>
+          ({navLinkId, scrollToId}: any, index) =>
             <NavLink 
+            key={index}
             navLinkId={navLinkId} 
             scrollToId={scrollToId} 
             />
