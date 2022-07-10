@@ -10,16 +10,29 @@ import Index from "./pages/Index"
 import Projects from "./pages/Projects"
 import { NavProvider } from './context/navProvider';
 import Contact from "./pages/Contact"
+import { useEffect, useRef, useState } from "react"
+import useWindowDimensions from "./hooks/useWindowDimensions"
 
 export const App = () => {
+
+  const navBarRef = useRef<HTMLDivElement>(null)
+  const { height } = useWindowDimensions()
+  const [ heightSubNav, setHeightSubNav ] = useState(0)
+
+  useEffect(() => {
+    if (navBarRef.current) {
+      setHeightSubNav(height - navBarRef.current?.clientHeight)
+      console.log(heightSubNav)
+    }
+  }, [navBarRef.current])
 
   return(
     <ChakraProvider theme={theme}>
       <NavProvider>
         <Box textAlign="center" fontSize="xl" display='flex' flexDirection='column' alignItems='center'>
           <Index />
-          <Navbar />
-          <About  />
+          <Navbar ref={navBarRef} />
+          <About  heightSubNav={heightSubNav} />
           <Projects  />
           <Contact />
         </Box>

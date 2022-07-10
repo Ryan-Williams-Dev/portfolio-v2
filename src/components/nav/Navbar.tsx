@@ -6,10 +6,13 @@ import {
 import NavLink from "./NavLink"
 import navLinks from "./NavLinks";
 
-export default function Navbar() {
+export default function Navbar(props: any) {
+
+  const { ref } = props 
 
   return(
     <Box 
+      ref={ref}
       display='flex'
       height={16}
       width='100vw'
