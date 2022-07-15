@@ -15,6 +15,7 @@
     "@types/react": "^18.0.13",
     "@types/react-dom": "^18.0.5",
     "framer-motion": "^6.3.11",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^3.11.0",
@@ -28,7 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --check src/**/*.tsx",
+    "prettier-write": "prettier --write src/**/*.tsx"
   },
   "eslintConfig": {
     "extends": "react-app"

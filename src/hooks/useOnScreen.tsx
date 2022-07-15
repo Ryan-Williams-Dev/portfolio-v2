@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-export const useOnScreen = (ref: { current: Element; }) => {
-	const [isOnScreen, setOnScreen] = useState(false);
+export const useOnScreen = (ref: { current: Element }) => {
+  const [isOnScreen, setOnScreen] = useState(false);
 
-	const observer = new IntersectionObserver(
-		([entry]) => setOnScreen(entry.isIntersecting),
-		{
-			threshold: 0.51,
-		}
-	);
+  const observer = new IntersectionObserver(
+    ([entry]) => setOnScreen(entry.isIntersecting),
+    {
+      threshold: 0.51,
+    }
+  );
 
-	useEffect(() => {
-		observer.observe(ref.current);
-		return () => {
-			observer.disconnect();
-		};
-	}, []); // delete empty array if encountering nav problems
-  
-	return isOnScreen;
+  useEffect(() => {
+    observer.observe(ref.current);
+    return () => {
+      observer.disconnect();
+    };
+  }, []); // delete empty array if encountering nav problems
+
+  return isOnScreen;
 };
