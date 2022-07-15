@@ -5,11 +5,13 @@ import {
   } from "@chakra-ui/react"
 import NavLink from "./NavLink"
 import navLinks from "./NavLinks";
+import { ForwardedRef, forwardRef } from "react";
 
-export default function Navbar() {
+const Navbar = forwardRef((props: any, ref: ForwardedRef<HTMLDivElement>) => {
 
   return(
     <Box 
+      ref={ref}
       display='flex'
       height={16}
       width='100vw'
@@ -37,4 +39,6 @@ export default function Navbar() {
       </Stack>
     </Box>
   )  
-}
+})
+
+export default Navbar

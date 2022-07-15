@@ -1,10 +1,12 @@
-import { Flex, Heading } from "@chakra-ui/react"
+import { Flex, Heading, useDimensions } from "@chakra-ui/react"
+import { useEffect } from "react"
 import IntroCard from "../components/introCard/IntroCard"
 import { useNav } from "../hooks/useNav"
 
-export default function About() {
+export default function About(props: any) {
 
   const aboutRef = useNav('About')
+  const { heightSubNav } = props;
 
   return (
     <Flex
@@ -13,11 +15,10 @@ export default function About() {
       direction='column' 
       justifyContent='space-evenly' 
       alignItems='center' 
-      width='90vw' 
+      width='100vw' 
       height='100vh'
       pt={16}
     >
-      <Heading pt={16}>About Me</Heading>
       <IntroCard/>
     </Flex>
   )
