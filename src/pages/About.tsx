@@ -16,7 +16,7 @@ export default function About(props: any) {
       justifyContent='space-evenly' 
       alignItems='center' 
       width='100vw' 
-      height={heightSubNav}
+      height='100vh'
       pt={16}
     >
       <IntroCard/>

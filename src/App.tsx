@@ -18,10 +18,12 @@ export const App = () => {
   const navBarRef = useRef<HTMLDivElement>(null)
   const { height } = useWindowDimensions()
   const [ heightSubNav, setHeightSubNav ] = useState(0)
+  const [ heightNav, setHeightNav ] = useState(0)
 
   useEffect(() => {
     if (navBarRef.current) {
       setHeightSubNav(height - navBarRef.current?.clientHeight)
+      setHeightNav(height - navBarRef.current?.clientHeight)
       console.log(heightSubNav)
     }
   }, [navBarRef.current])
@@ -29,10 +31,10 @@ export const App = () => {
   return(
     <ChakraProvider theme={theme}>
       <NavProvider>
-        <Box textAlign="center" fontSize="xl" display='flex' flexDirection='column' alignItems='center'>
+        <Box textAlign="center" fontSize="xl" display='flex' flexDirection='column' alignItems='center' >
           <Index />
           <Navbar ref={navBarRef} />
-          <About  heightSubNav={heightSubNav} />
+          <About  heightSubNav={heightSubNav} heightNav={heightNav} />
           <Projects  />
           <Contact />
         </Box>
