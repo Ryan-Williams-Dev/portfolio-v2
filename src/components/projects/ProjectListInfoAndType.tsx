@@ -21,7 +21,7 @@ export const projects: ProjectList = [
   {
     title: "Decision Maker",
     imageLocation: "/images/projects/scheduler/1.JPG",
-    description: "Deccccc",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, sequi omnis iusto ducimus veritatis blanditiis dolore provident? Nisi saepe numquam sint quos sunt cumque omnis neque. Sit error ea dolorem!",
   },
   {
     title: "Tweeter",
