@@ -1,5 +1,6 @@
 import "./styles/globals.css";
-import { ChakraProvider, Box, theme } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
+import theme from "./theme";
 import Navbar from "./components/nav/Navbar";
 import About from "./pages/About";
 import Index from "./pages/Index";
