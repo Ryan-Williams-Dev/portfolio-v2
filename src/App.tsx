@@ -21,7 +21,7 @@ export const App = () => {
       setHeightNav(height - navBarRef.current?.clientHeight);
       console.log(heightSubNav);
     }
-  }, [navBarRef.current]);
+  }, [navBarRef.current, setHeightNav, height]);
 
   return (
     <ChakraProvider theme={theme}>
@@ -32,6 +32,7 @@ export const App = () => {
           display="flex"
           flexDirection="column"
           alignItems="center"
+          backgroundColor='gray.800'
         >
           <Index />
           <Navbar ref={navBarRef} />
